@@ -178,18 +178,3 @@ This project is open source and available under the [MIT License](LICENSE).
 - Font families: Playfair Display and Manrope from Google Fonts
 - Inspired by the need for accessible, beautiful mental health tools
 
-## 📞 Support
-
-If you have questions or need help:
-
-- Open an issue in the GitHub repository
-- Check the Crisis Support section for mental health emergencies
-- Reach out to qualified mental health professionals
-
----
-
-**Remember**: Taking care of your mental health is a sign of strength, not weakness. You deserve support, and you're not alone. 💚
-
----
-
-Made with 💙 for mental wellness

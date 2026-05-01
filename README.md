@@ -1,180 +1,60 @@
-# Ponder.web
-# ✨ Ponder
+# Ponder
 
-> Your personal sanctuary for mental wellness, self-reflection, and growth.
+A single-page mental wellness companion for tracking mood, journaling, and finding mental health resources and crisis support.
 
-Ponder is a modern, uplifting mental health web application designed to help you track your emotional wellbeing, journal your thoughts, access professional mental health resources, and find crisis support when you need it most.
+🌐 **Live app:** [ponder-webapp.netlify.app](https://ponder-webapp.netlify.app/)
 
-![Ponder Banner](https://img.shields.io/badge/Mental%20Health-Matters-FFB4A2?style=for-the-badge)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+The whole app lives in one HTML file — open it in a browser and it works. No build step, no server, no install.
 
-## 🌟 Features
+## Features
 
-### 📊 Mood Tracker
-- **Daily Mood Logging**: Track your emotional state across 5 levels (Amazing, Good, Okay, Low, Struggling)
-- **Weekly Insights**: Automatically calculates your average mood for the week
-- **Historical Data**: Save and review past weeks to identify patterns
-- **Visual Interface**: Intuitive emoji-based mood selection
-- **Smart Sorting**: Filter moods by current week, last week, or all weeks
+- **Mood Tracker** — log a daily mood with an optional note, view weekly averages, and browse past weeks filtered by week / month / year.
+- **Diary** — a spiral-notebook style journal with an autosaved daily page and a grid of past entries to revisit.
+- **Resources** — 14 cards covering common mental health topics (anxiety, depression, burnout, sleep, eating disorders, ADHD, OCD, PTSD, self-harm, loneliness, and more). Self-help tips are sourced from the NHS and UK mental health charities, with links to further reading.
+- **Crisis Support** — searchable directory of free, confidential 24/7 helplines across 36 countries.
+- **Sign in with Google** (via Firebase) to sync mood entries and diary pages across devices. Works as a guest too — entries just won't persist when the tab closes.
 
-### 📔 Personal Diary
-- **Beautiful Design**: Realistic diary aesthetic with lined pages and leather-bound appearance
-- **Secure Storage**: Your thoughts are saved privately to your account
-- **Easy Organization**: Sort entries by newest or oldest first
-- **Entry Preview**: Quick overview of past entries before reading in full
-- **Responsive Writing**: Comfortable journaling experience on any device
+## Getting started
 
-### 💡 Mental Health Resources
-Comprehensive, evidence-based information on 14 common mental health conditions:
+The easiest way: just visit [ponder-webapp.netlify.app](https://ponder-webapp.netlify.app/).
 
-- 🧠 Anxiety Disorders (GAD, Social Anxiety, Panic Disorder)
-- 💙 Depression & Persistent Low Mood
-- ⚡ Chronic Stress & Burnout
-- 😴 Sleep Disturbances & Insomnia
-- 🍽️ Eating Disorders & Disordered Eating
-- 🚭 Substance Misuse or Dependency
-- 🎯 ADHD (Attention-Deficit/Hyperactivity Disorder)
-- 🤝 Loneliness & Social Isolation
-- 💔 Suicidal Ideation & Self-Harm
-- 🔄 Obsessive-Compulsive Disorder (OCD)
-- 🌪️ Post-Traumatic Stress Disorder (PTSD)
-- 🪞 Body Dysmorphia & Low Self-Esteem
-- 🏠 Homesickness (for transitional students)
-- 💰 Financial Stress & Money Anxiety
+To run it locally, open `ponder_v9.html` in any modern browser — that's it. Or for a quick local server:
 
-Each resource includes:
-- Clear condition descriptions
-- Professional, evidence-based advice from well-known studies
-- Practical coping strategies
-- Treatment effectiveness data
-
-### 🆘 Crisis Support
-- **35+ International Hotlines**: Access to suicide prevention and crisis support lines from countries worldwide
-- **24/7 Availability**: Most services operate around the clock
-- **Easy Search**: Filter by country name to quickly find local support
-- **Immediate Access**: Direct phone numbers and service information
-
-## 🎨 Design Philosophy
-
-Ponder was built with a focus on creating an uplifting, calming experience:
-
-- **Warm Color Palette**: Soothing peach, rose, sage, and mint tones
-- **Smooth Animations**: Gentle transitions that don't overwhelm
-- **Modern Typography**: Elegant Playfair Display paired with clean Manrope
-- **Thoughtful Details**: Soft shadows, gradient accents, and micro-interactions
-- **Mood-Boosting Aesthetics**: Every element designed to bring comfort
-
-## 🚀 Getting Started
-
-### Installation
-
-1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/ponder.git
+python3 -m http.server 8000
+# then visit http://localhost:8000/ponder_v9.html
 ```
 
-2. Navigate to the project directory:
-```bash
-cd ponder
+To deploy your own copy: the app is currently hosted on [Netlify](https://www.netlify.com/), but any static host (GitHub Pages, Vercel, Cloudflare Pages) works without configuration — just drop the HTML file in.
+
+## Tech
+
+- Plain HTML, CSS, and vanilla JavaScript — no framework, no bundler.
+- [Firebase](https://firebase.google.com/) Authentication (Google sign-in) and Firestore for cloud sync.
+- Google Fonts: Playfair Display, Manrope, Caveat, Kalam.
+
+The Firebase config in the file is for a public demo project. If you fork this and want your own user data isolated, swap the `firebaseConfig` object near the top of the `<head>` for your own Firebase project's config and set up Firestore security rules.
+
+## Project structure
+
+```
+ponder_v9.html    # the entire app — markup, styles, and script
+README.md         # this file
 ```
 
-3. Open `ponder.html` in your web browser:
-```bash
-# On macOS
-open ponder.html
+The HTML file is heavily commented and organised into three parts:
 
-# On Windows
-start ponder.html
+1. `<head>` — fonts, Firebase setup, all CSS
+2. `<body>` — the five sections (Home, Mood, Diary, Resources, Crisis)
+3. `<script>` — auth, storage helpers, navigation, and the per-section logic
 
-# On Linux
-xdg-open ponder.html
-```
+Search for `──` inside the `<script>` tag to jump between logical sections.
 
-That's it! Ponder is a single-file application with no dependencies or build process required.
+## A note on the content
 
-### Usage
+The self-help tips in the Resources section are drawn from publicly available NHS and UK mental health charity guidance and are intended for general educational purposes only. They are **not** a substitute for professional medical advice. If you're struggling, please speak to a GP or qualified mental health professional. If you're in crisis, the Crisis Support section lists free helplines available 24/7.
 
-1. **Track Your Mood**: Navigate to the Mood Tracker and click on emoji faces to log how you're feeling each day
-2. **Journal Your Thoughts**: Visit the Diary section to write down your reflections
-3. **Explore Resources**: Browse evidence-based mental health information in the Resources section
-4. **Find Support**: Access crisis hotlines from the Crisis Support section if you need immediate help
+## License
 
-## 💾 Data Storage
-
-Ponder uses browser's persistent storage API to save your data locally:
-
-- **Mood Data**: Stored under `ponder_moods`
-- **Diary Entries**: Stored under `ponder_diary`
-- **Week History**: Stored under `ponder_week_history`
-
-All data remains private on your device and is never transmitted to external servers.
-
-## 🛠️ Technical Details
-
-- **Pure HTML/CSS/JavaScript**: No frameworks or dependencies
-- **Responsive Design**: Works seamlessly on desktop, tablet, and mobile
-- **Local Storage**: Uses persistent storage API for data retention
-- **Cross-Browser Compatible**: Tested on modern browsers
-- **Accessible**: Built with accessibility considerations
-
-## 🌐 Browser Compatibility
-
-Ponder works best on modern browsers:
-- Chrome/Edge 90+
-- Firefox 88+
-- Safari 14+
-- Opera 76+
-
-## 📱 Mobile Support
-
-Ponder is fully responsive and provides an excellent experience on:
-- iOS devices (iPhone, iPad)
-- Android devices (phones and tablets)
-- Touch-optimized interactions
-
-## 🤝 Contributing
-
-Contributions are welcome! If you'd like to improve Ponder:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📋 Roadmap
-
-Future enhancements we're considering:
-
-- [ ] Export diary entries as PDF
-- [ ] Mood analytics and trend visualisation
-- [ ] Guided meditation timer
-- [ ] Breathing exercises
-- [ ] Customizable themes
-- [ ] Multi-language support
-- [ ] Cloud sync (optional)
-- [ ] Mental health professional directory
-
-## ⚠️ Important Notice
-
-**Ponder is a wellness tool and should not replace professional mental health care.** If you're experiencing a mental health crisis or emergency:
-
-- 🇺🇸 US: Call or text 988 (Suicide & Crisis Lifeline)
-- 🇬🇧 UK: Call 116 123 (Samaritans)
-- 🌍 International: Check the Crisis Support section in the app
-
-Always consult with qualified mental health professionals for diagnosis and treatment.
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 💖 Acknowledgments
-
-- Mental health resources compiled from peer-reviewed studies and professional organisations
-- Crisis hotline information sourced from verified international organisations
-- Font families: Playfair Display and Manrope from Google Fonts
-- Inspired by the need for accessible, beautiful mental health tools
+Add your preferred license here (MIT is a common choice for projects like this).
 

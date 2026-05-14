@@ -54,7 +54,6 @@ Search for `──` inside the `<script>` tag to jump between logical sections.
 
 The self-help tips in the Resources section are drawn from publicly available NHS and UK mental health charity guidance and are intended for general educational purposes only. They are **not** a substitute for professional medical advice. If you're struggling, please speak to a GP or qualified mental health professional. If you're in crisis, the Crisis Support section lists free helplines available 24/7.
 
-## License
 
-Add your preferred license here (MIT is a common choice for projects like this).
+
 
